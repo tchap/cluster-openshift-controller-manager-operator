@@ -1,0 +1,102 @@
+apiVersion: operator.openshift.io/v1
+kind: OpenShiftControllerManager
+metadata:
+  annotations:
+    include.release.openshift.io/hypershift: "true"
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+    release.openshift.io/create-only: "true"
+  creationTimestamp: "2025-05-02T13:01:11Z"
+  generation: 3
+  name: cluster
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    kind: ClusterVersion
+    name: version
+    uid: 3bfca197-9a26-4dd8-9e38-146f136421a7
+  resourceVersion: "17066"
+  uid: ce252d4d-9d70-4889-b714-df2375191d6e
+spec:
+  logLevel: Normal
+  managementState: Managed
+  observedConfig:
+    build:
+      buildDefaults:
+        resources: {}
+      imageTemplateFormat:
+        format: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:55110b7abc9d825df8c12a5cadeb78080402f8fdcedd051e19d00c3d8d1695c6
+    controllers:
+    - openshift.io/build
+    - openshift.io/build-config-change
+    - openshift.io/builder-rolebindings
+    - openshift.io/builder-serviceaccount
+    - -openshift.io/default-rolebindings
+    - openshift.io/deployer
+    - openshift.io/deployer-rolebindings
+    - openshift.io/deployer-serviceaccount
+    - openshift.io/deploymentconfig
+    - openshift.io/image-import
+    - openshift.io/image-puller-rolebindings
+    - openshift.io/image-signature-import
+    - openshift.io/image-trigger
+    - openshift.io/ingress-ip
+    - openshift.io/ingress-to-route
+    - openshift.io/origin-namespace
+    - openshift.io/serviceaccount
+    - openshift.io/serviceaccount-pull-secrets
+    - openshift.io/templateinstance
+    - openshift.io/templateinstancefinalizer
+    - openshift.io/unidling
+    deployer:
+      imageTemplateFormat:
+        format: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:5ae923ca89f758388f8b808d3f5ffc0d91da077b7fd23f2e6d0e8194785ab7a0
+    dockerPullSecret:
+      internalRegistryHostname: image-registry.openshift-image-registry.svc:5000
+    featureGates:
+    - BuildCSIVolumes=true
+    ingress:
+      ingressIPNetworkCIDR: ""
+  operatorLogLevel: Normal
+  unsupportedConfigOverrides: null
+status:
+  conditions:
+  - lastTransitionTime: "2025-05-02T13:06:00Z"
+    status: "False"
+    type: ResourceSyncControllerDegraded
+  - lastTransitionTime: "2025-05-02T13:14:30Z"
+    status: "False"
+    type: ConfigObservationDegraded
+  - lastTransitionTime: "2025-05-02T13:20:43Z"
+    message: ""
+    reason: AsExpected
+    status: "False"
+    type: OpenshiftControllerManagerStaticResourcesDegraded
+  - lastTransitionTime: "2025-05-02T13:22:05Z"
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-05-02T13:22:05Z"
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2025-05-02T13:06:05Z"
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2025-05-02T13:06:05Z"
+    status: "False"
+    type: WorkloadDegraded
+  generations:
+  - group: apps
+    hash: ""
+    lastGeneration: 7
+    name: controller-manager
+    namespace: openshift-controller-manager
+    resource: deployments
+  - group: apps
+    hash: ""
+    lastGeneration: 4
+    name: route-controller-manager
+    namespace: openshift-route-controller-manager
+    resource: deployments
+  observedGeneration: 3
+  readyReplicas: 0
+  version: 4.18.0-0.nightly-2025-05-02-014239
